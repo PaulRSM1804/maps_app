@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps API App</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.GOOGLE_MAPS_API_KEY %>&callback=initMap" async defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto px-4 py-6">
+    <h1 class="text-4xl font-bold text-center mb-6">Google Maps API Implementacion</h1>
+    <div class="mb-4">
+      <input type="text" id="address" class="border rounded w-full py-2 px-3" placeholder="Ingresar Direccion">
+      <button onclick="geocode()" class="bg-blue-500 text-white rounded px-4 py-2 mt-2 hover:bg-blue-700">Conseguir Geolocalizacion</button>
+    </div>
+    <div class="mb-4">
+      <input type="text" id="origin" class="border rounded w-full py-2 px-3" placeholder="Ingresar Ubicacion">
+      <input type="text" id="destination" class="border rounded w-full py-2 px-3 mt-2" placeholder="Ingresar Destino">
+      <button onclick="getDirections()" class="bg-blue-500 text-white rounded px-4 py-2 mt-2 hover:bg-blue-700">Conseguir Trayectoria</button>
+    </div>
+    <div class="mb-4">
+      <button onclick="findRestaurants()" class="bg-green-500 text-white rounded px-4 py-2 hover:bg-green-700">Encontrar Restaurants en Quito</button>
+    </div>
+    <div class="mb-4">
+      <button onclick="findRestaurantsGuayaquil()" class="bg-green-500 text-white rounded px-4 py-2 hover:bg-green-700">Encontrar Restaurants en Guayaquil</button>
+    </div>
+    <div id="map" class="h-96 mb-4"></div>
+    <div id="status" class="bg-white p-4 rounded shadow mb-4 hidden">
+      <p id="status-text" class="text-green-500 font-bold">Data Lista!</p>
+      <button onclick="exportToJson()" class="bg-blue-500 text-white rounded px-4 py-2 mt-2 hover:bg-blue-700">Export JSON</button>
+    </div>
+  </div>
+  <script src="/scripts.js"></script>
+</body>
+</html>
